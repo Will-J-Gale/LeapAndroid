@@ -29,7 +29,6 @@ socket.on('handEvent', function(handData)
 {
     
     var hand = getHand(handData.type)
-    console.log(handData.type)
     rHand.move(handData)
     
 });
@@ -37,12 +36,8 @@ socket.on('handEvent', function(handData)
 function getHand(hType)
 {
     if( hType == "left")
-    {
         return lHand;
-    }
     else
-    {
         return rHand;
-    }
 }
 
