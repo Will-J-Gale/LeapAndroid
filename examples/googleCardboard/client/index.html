@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	  <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+    <title>Google Cardboard</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <style>
+      body {
+        margin: 0px;
+        overflow: hidden;
+      }
+      #example {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="example"></div>
+  <!-- Library Files-->
+  <script src="client/lib/three.js"></script>
+  <script src="client/lib/stats.js"></script>
+  <script src="client/lib/cannon.js"></script>
+  <script src="client/lib/LeapInteractionEngine.js"></script>
+
+  <!-- Source Files-->
+  
+  <script src="client/js/StereoEffect.js"></script>
+  <script src="client/js/DeviceOrientationControls.js"></script>
+  <script src="client/js/OrbitControls.js"></script>
+
+  <script src="client/js/objects.js"></script>
+  <script src="client/js/setup.js"></script>
+  <script src="client/js/socket.js"></script>
+  
+  </body>
+
+</html>

@@ -1,0 +1,8 @@
+{
+  "name": "leap-android",
+  "version": "1.0.0",
+  "description": "Leap motion to android",
+  "scripts": {
+    "start": "node server.js"
+  }
+}
