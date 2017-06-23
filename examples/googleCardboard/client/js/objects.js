@@ -22,6 +22,7 @@ function Hand()
 
     this.palmLine = [];
     this.color = "white";
+    this.currentColor = this.color;
     this.palmSphereColor = "purple";
 
     this.grabbedObject = false;

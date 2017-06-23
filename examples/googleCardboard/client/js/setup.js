@@ -7,7 +7,7 @@ var xScale = 1.5,
     handSizeZ = 1;
 
 var yOffset = 500,
-    zOffset = 150;
+    zOffset = 200;
 
 var handThickness = 7;
 
@@ -93,28 +93,18 @@ lHand = new Hand();
 
 LIE.scene = scene;
 
-var ground = new LIE.PhysicsBox({width: 1000, height: 10, depth: 1000, mass:0, color:"grey"})
-ground.body.position.set(0, 0, 0)
-ground.mesh.position.copy(ground.body.position)
-ground.physicsEnabled = false;
+var ground = Create.box(1000, 10, 1000, 0,0,0, 0x444444)
+ground.position.set(0, 0, 0)
 
-var box = new LIE.PhysicsBox({color: "red", mass:100, width: 60, height:30, depth:30})
-box.body.position.set(0,50,0);
-box.physicsEnabled = true;
+var box = Create.box(60, 30, 60, 0,0,0, "red");
+box.position.set(0,50,0);
 
-
-var sphere = new LIE.PhysicsSphere({radius:20, mass: 100, color:"green"});
-sphere.physicsEnabled = true;
-sphere.body.position.set(100, 50, 0)
+var sphere = Create.sphere(20, 0,0,0, 0x00ff00)
+sphere.position.set(100, 50, 0)
 
 /*var cylinder = new LIE.PhysicsCylinder({radiusTop:20, radiusBottom:20, height: 50, mass:100, color:"blue"});
 cylinder.physicsEnabled = true;
 cylinder.body.position.set(-100, 50, 0)*/
-
-
-box.body.collisionFilterMask = 1 | 4; 
-sphere.body.collisionFilterMask = 1 | 4; 
-//cylinder.body.collisionFilterMask = 1 | 4; 
 
 
 window.addEventListener('resize', resize, false);
@@ -139,10 +129,6 @@ function animate(t) {
 
     stats.begin();
 
-    LIE.update();
-    //LIE.WORLD.step(timeStep);
-
-    resize();
     controls.update(clock.getDelta());
 
     effect.render(scene, camera);
@@ -157,7 +143,6 @@ function updatePhysics()
     LIE.update();
     LIE.WORLD.step(timeStep);
 }
-
 
 function fullscreen() {
     if (container.requestFullscreen) {

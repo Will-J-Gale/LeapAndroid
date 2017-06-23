@@ -16,7 +16,11 @@ app.get('/',function(req, res) {
 app.use('/client',express.static(__dirname + '/client'));
 serv.listen(port);
 
-console.log('\n' + "Server started on port: " + port + '\n');
+require('dns').lookup(require('os').hostname(), function (err, ip, fam) {
+
+    var address = ip + ":" + port;
+    console.log('\n' +  "Connect your phone to: " + address + '\n');
+})
 //console.log("Arguments: ", process.argv[2], Number(process.argv[2]) instanceof Number)
 io.sockets.on('connection', function(socket){
     socket.id = Math.random();
